@@ -76,6 +76,16 @@ angular.module('html6', []).
         };
     }).
     directive('chat', function() {
+        /* Useful styles
+        .media-heading {
+            display: inline;
+            color: #483D8B;
+         }
+        .media-heading + span {
+            margin-left: 10px;
+            font-size: 80%;
+         }
+        */
         return {
             restrict: 'E',
             controller: function ($scope, $filter, Chat) {
@@ -137,3 +147,16 @@ angular.module('html6', []).
 
         }
     });
+
+
+/*
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+ <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <!--jquery is needed before bootstrap.js for responsive navbar -->
+ <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+ <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+
+
+*/
