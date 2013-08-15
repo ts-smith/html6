@@ -1,4 +1,24 @@
 angular.module('html6', []).
+    directive('remember', function(){
+        return {
+            require: '^ngModel',
+            link: function(scope,elm,attrs,ngModelCtrl){
+                //Could namespace it by parameterizing the remember directive, or by creating a namespace directive which it uses
+                //In both cases append the namespace to the model name or whatever
+
+                elm.on('blur keyup change', function(){
+                    localStorage[attrs.ngModel] = ngModelCtrl.$viewValue;
+                });
+                ngModelCtrl.$setViewValue(localStorage[attrs.ngModel])
+
+                ngModelCtrl.$render = function() {
+                    //Seems to play nice with strings
+                    elm.val(ngModelCtrl.$viewValue);
+                };
+                ngModelCtrl.$render();
+            }
+        };
+    }).
     directive('navbar', function () {
         return {
             restrict: 'E',
